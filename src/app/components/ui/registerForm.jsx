@@ -4,6 +4,7 @@ import TextField from "../common/form/textField";
 import api from "../../api";
 import SelectField from "../common/form/selectField";
 import RadioField from "../common/form/radioField";
+import MultiSelectField from "../common/form/multiSelectField";
 const RegisterForm = () => {
     const [data, setData] = useState({
         email: "",
@@ -11,10 +12,12 @@ const RegisterForm = () => {
         profession: "",
         sex: "male"
     });
+    const [qualisties, setQualities] = useState({});
     const [professions, setProfession] = useState();
     const [errors, setErrors] = useState({});
     useEffect(() => {
         api.professions.fetchAll().then((data) => setProfession(data));
+        api.qualisties.fetchAll().then((data) => setQualities(data));
     }, []);
     const handleChange = ({ target }) => {
         setData((prevState) => ({
@@ -103,7 +106,7 @@ const RegisterForm = () => {
                 name="sex"
                 onChange={handleChange}
             />
-
+            <MultiSelectField options={qualities} onChange={handleChange} />
             <button
                 type="submit"
                 disabled={!isValid}

@@ -1,5 +1,5 @@
 import React from "react";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 const RadioField = ({ options, name, onChange, value, label }) => {
     return (
         <div className="md-4">
@@ -31,12 +31,12 @@ const RadioField = ({ options, name, onChange, value, label }) => {
     );
 };
 
-RadioField.propType = {
-    option: propTypes.array,
-    name: propTypes.string,
-    onChange: propTypes.func,
-    value: propTypes.string,
-    label: propTypes.string
+RadioField.propTypes = {
+    options: PropTypes.array,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    value: PropTypes.string,
+    label: PropTypes.string
 };
 
 export default RadioField;
